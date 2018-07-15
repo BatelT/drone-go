@@ -5,6 +5,7 @@ pipeline:
     commands:
     # Download the JFrog CLI 
       - curl -fL https://getcli.jfrog.io | sh
+      - echo $GOPATH
       - go get -u golang.org/x/vgo
       - export vgo=$GOPATH/bin/vgo
       - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
