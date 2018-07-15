@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: go
+    image: golang
     secrets: [ artifactory_password, ARTIFACTORY_USER, ARTIFACTORY_URL, go_repo_key ]
     commands:
     # Download the JFrog CLI 
