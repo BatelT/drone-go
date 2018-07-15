@@ -1,14 +1,20 @@
 pipeline:
   build:
     image: go
-    secrets: [ artifactory_password, ARTIFACTORY_USER, ARTIFACTORY_URL, maven_repo_key ]
+    secrets: [ artifactory_password, ARTIFACTORY_USER, ARTIFACTORY_URL, go_repo_key ]
     commands:
     # Download the JFrog CLI 
       - curl -fL https://getcli.jfrog.io | sh
       - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
       - ./jfrog rt c show
-      - export M2_HOME=/usr/share/maven
-      - sed -i 's,MAVEN_REPO_KEY,'"$MAVEN_REPO_KEY"',g' configuration.yml
-      - ./jfrog rt mvn "clean install" configuration.yml --build-name=Drone_Maven_demo --build-number=1.1.0
-      - ./jfrog rt bce Drone_Maven_demo 1.1.0
-      - ./jfrog rt bp Drone_Maven_demo 1.1.0
+      - sed -i 's,go_repo_key,'"$go_repo_key"',g' configuration.yml
+      - ./jfrog rt go build --no-registry
+      - .jfrog rt gp go-local --self=false --deps=ALL
+      - ./jfrog rt go build go-virtual
+      - ./jfrog rt go build go-virtual
+      - ./jfrog rt gp go-local v1.0.0 --build-name=my-build --build-number=1
+      - ./jfrog rt bce my-build 1
+      - ./jfrog rt bp my-build 1
+      
+      
+      
