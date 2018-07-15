@@ -7,6 +7,7 @@ pipeline:
       - curl -fL https://getcli.jfrog.io | sh
       - go get -u golang.org/x/vgo
       - export vgo=$GOPATH/bin/vgo
+      - vgo
       - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
       - ./jfrog rt c show
       - sed -i 's,go_repo_key,'"$go_repo_key"',g' configuration.yml
