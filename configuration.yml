@@ -2,10 +2,10 @@
 version: 1
 type: go
 resolver:
-  snapshotRepo: MAVEN_REPO_KEY
-  releaseRepo: MAVEN_REPO_KEY
+  snapshotRepo: go_repo_key
+  releaseRepo: go_repo_key
   serverID: Default-Server
 deployer:
-  snapshotRepo: MAVEN_REPO_KEY
-  releaseRepo: MAVEN_REPO_KEY
+  snapshotRepo: go_repo_key
+  releaseRepo: go_repo_key
   serverID: Default-Server
