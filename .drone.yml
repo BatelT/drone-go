@@ -8,7 +8,7 @@ pipeline:
       - export GOPATH="/go/bin"
       - echo $GOPATH
       - go get -u golang.org/x/vgo
-      - export vgo=$GOPATH/vgo
+      - export vgo=$GOPATH/bin/vgo
       - vgo
       - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
       - ./jfrog rt c show
