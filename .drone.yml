@@ -9,6 +9,7 @@ pipeline:
       - echo $GOPATH
       - go get -u golang.org/x/vgo
       - export vgo=$GOPATH/vgo
+      - vgo
       - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
       - ./jfrog rt c show
       - sed -i 's,go_repo_key,'"$go_repo_key"',g' configuration.yml
