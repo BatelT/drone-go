@@ -12,7 +12,6 @@ pipeline:
       - ./jfrog rt c show
       - sed -i 's,go_repo_key,'"$go_repo_key"',g' configuration.yml
       - cd hello
-      - ls
       - vgo build 
       
 
