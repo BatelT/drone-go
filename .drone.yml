@@ -13,8 +13,8 @@ pipeline:
       - ./jfrog rt c show
       - sed -i 's,go_repo_key,'"$go_repo_key"',g' ../configuration.yml
       - ./jfrog rt go build --no-registry
-      - ./jfrog rt gp go-local
-      - ./jfrog rt go build go-virtual
+      - ./jfrog rt gp go
+      - ./jfrog rt go build go
       - ./jfrog rt gp go-local v1.0.0 --build-name=my-build --build-number=1
 
       
