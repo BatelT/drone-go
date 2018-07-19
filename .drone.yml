@@ -5,7 +5,9 @@ pipeline:
     commands:
     # Download the JFrog CLI 
       - curl -fL https://getcli.jfrog.io | sh
+      - chmod +x jfrog
       - export jfrog=$jfrog
+      - echo $jfrog
       - echo $GOPATH
       - go get -u golang.org/x/vgo
       - export vgo=$GOPATH/bin/vgo
