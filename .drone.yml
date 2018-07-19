@@ -14,5 +14,8 @@ pipeline:
       - sed -i 's,go_repo_key,'"$go_repo_key"',g' ../configuration.yml
       - ./jfrog rt go build --no-registry
       - ./jfrog rt gp go --self=false --deps=ALL
+      - ./jfrog rt bce Drone_GO_demo 1.1.0
+      - ./jfrog rt bp Drone_GO_demo 1.1.0
+
 
 
