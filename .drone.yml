@@ -15,6 +15,6 @@ pipeline:
       - ./jfrog rt go build --no-registry
       - ls -ll $GOPATH/src/mod
       - ./jfrog rt go build go
-      - ./jfrog rt gp $go_repo_key v1.0.0 --build-name=my-build --build-number=1
+      - ./jfrog rt gp go-local v1.0.0 --build-name=my-build --build-number=1
       - ./jfrog rt bce my-build 1
       - ./jfrog rt bp my-build 1
