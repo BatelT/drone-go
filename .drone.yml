@@ -13,7 +13,7 @@ pipeline:
       - ./jfrog rt c show
       - sed -i 's,go_repo_key,'"$go_repo_key"',g' configuration.yml
       - cd hello
-      - ./jfrog rt go build --no-registry
+      - jfrog rt go build --no-registry
     
 
 
