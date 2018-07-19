@@ -10,7 +10,7 @@ pipeline:
       - cd hello
       - curl -fL https://getcli.jfrog.io | sh
       - chmod +x jfrog
-      - export jfrog=$jfrog
+      - export jfrog=$jfrog/drone/src/github.com/BatelT/drone-go/hello/jfrog
       - source ~/.bashrc
       - echo $jfrog
       - jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
