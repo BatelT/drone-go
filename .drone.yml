@@ -4,17 +4,14 @@ pipeline:
     secrets: [ artifactory_password, ARTIFACTORY_USER, ARTIFACTORY_URL, go_repo_key ]
     commands:
     # Download the JFrog CLI 
-      - curl -fL https://getcli.jfrog.io | sh
-      - chmod +x jfrog
-      - export jfrog=$jfrog
-      - echo $jfrog
       - echo $GOPATH
       - go get -u golang.org/x/vgo
       - export vgo=$GOPATH/bin/vgo
+      - cd hello
+      - curl -fL https://getcli.jfrog.io | sh
       - ./jfrog rt config --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASSWORD
       - ./jfrog rt c show
       - sed -i 's,go_repo_key,'"$go_repo_key"',g' configuration.yml
-      - cd hello
       - jfrog rt go build --no-registry
     
 
