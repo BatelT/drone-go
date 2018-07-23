@@ -8,3 +8,4 @@ deployer:
   snapshotRepo: go_repo_key
   releaseRepo: go_repo_key
   serverID: Default-Server
+
