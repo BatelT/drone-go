@@ -17,8 +17,8 @@ pipeline:
       - ./jfrog rt go build --no-registry
       - ls -ll $GOPATH/src/mod
       - ./jfrog rt go build go
-      - ./jfrog rt gp go-local v1.0.1 --build-name=Drone-GO-Demo --build-number=1.0.1
+      - ./jfrog rt gp go-local v1.0.2 --build-name=Drone-GO-Demo --build-number=1.0.2
     # Collect the environment variables with bce command   
-      - ./jfrog rt bce Drone-Gradle-Demo 1.0.1
+      - ./jfrog rt bce Drone-Gradle-Demo 1.0.2
     # Publish the build with bp command
-      - ./jfrog rt bp Drone-Gradle-Demo 1.0.1
+      - ./jfrog rt bp Drone-Gradle-Demo 1.0.2
