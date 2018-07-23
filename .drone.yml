@@ -19,6 +19,6 @@ pipeline:
       - ./jfrog rt go build go
       - ./jfrog rt gp go-local v1.0.6 --build-name=Drone-GO-Demo --build-number=1.0.6
     # Collect the environment variables with bce command   
-      - ./jfrog rt bce Drone-Gradle-Demo 1.0.6
+      - ./jfrog rt bce Drone-GO-Demo 1.0.6
     # Publish the build with bp command
-      - ./jfrog rt bp Drone-Gradle-Demo 1.0.6
+      - ./jfrog rt bp Drone-GO-Demo 1.0.6
